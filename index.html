@@ -15,7 +15,10 @@
                 element: usersContainer,
                 data: users,
                 options: {
-                    firstColumn: 'lol',
+                    rowHeight: '90',
+                    rowMouseOver: true,
+                    rowStyle: 'zebra',
+                    //fixedHeader: true,
                 }
             });
         }
@@ -25,7 +28,7 @@
 
 <body>
     <div class="users-data-container">
-        <div class="row">
+        <div class="row header" style="position: fixed">
             <div class="cell index id">Id</div>
             <div class="cell index index">Index</div>
             <div class="cell index name">Name</div>
@@ -40,6 +43,7 @@
             <div class="cell index registered">Registered</div>
         </div>
     </div>
+    <div style="margin-top: 500px;">LOL</div>
 </body>
 
 </html>
