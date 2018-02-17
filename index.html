@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/database.js"></script>
+    <script src="assets/script.js"></script>
+    <script>
+        window.onload = function () {
+            var usersContainer = document.querySelector('.users-data-container');
+            initSuperTable({
+                element: usersContainer,
+            });
+        }
+    </script>
+    <title>Super Table</title>
+</head>
+
+<body>
+    <div class="users-data-container">
+        <div class="row">
+            <div class="cell index id">Id</div>
+            <div class="cell index index">Index</div>
+            <div class="cell index name">Name</div>
+            <div class="cell index email">Email</div>
+            <div class="cell index gender">Gender</div>
+            <div class="cell index isActive">Is Active</div>
+            <div class="cell index age">Age</div>
+            <div class="cell index eyeColor">eyeColor</div>
+            <div class="cell index company">Company</div>
+            <div class="cell index phone">Phone</div>
+            <div class="cell index address">Address</div>
+            <div class="cell index registered">Registered</div>
+        </div>
+    </div>
+</body>
+
+</html>
