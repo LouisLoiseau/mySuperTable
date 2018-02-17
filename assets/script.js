@@ -1,7 +1,6 @@
 function initSuperTable(attributes) {
-    for (var i in attributes) {
-        displayData(attributes['element'], attributes['data']);
-    }
+    displayData(attributes['element'], attributes['data']);
+    console.log(attributes['options']['firstColumn']);
 }
 
 function displayData(element, data) {
