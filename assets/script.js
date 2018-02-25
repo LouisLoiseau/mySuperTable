@@ -1,9 +1,13 @@
+window.onload = function () {
+
+};
+
+
 function initSuperTable(attributes) {
     displayData(attributes['element'], attributes['data']);
-    //rowHeight(attributes['options']['rowHeight']);
+    rowHeight(attributes['options']['rowHeight']);
     rowMouseOver(attributes['options']['rowMouseOver']);
     rowStyle(attributes['options']['rowStyle']);
-    //fixedHeader(attributes['options']['fixedHeader']);
 }
 
 function displayData(element, data, firstColumn) {
@@ -20,7 +24,8 @@ function displayData(element, data, firstColumn) {
         var phone = '<div class="cell">' + data[i].phone + '</div>';
         var address = '<div class="cell">' + data[i].address + '</div>';
         var registered = '<div class="cell">' + data[i].registered + '</div>';
-        element.innerHTML += '<div class="row">' + id + index + name + email + gender + isActive + age + eyeColor + company + phone + address + registered + '</div>';
+        var deleteCell = '<div class="cell delete">Delete</div>';
+        element.innerHTML += '<div class="row">' + id + index + name + email + gender + isActive + age + eyeColor + company + phone + address + registered + deleteCell + '</div>';
     }
 }
 
@@ -57,6 +62,29 @@ function rowStyle(type) {
         }
         for (var d in allCells) {
             allCells[d].className += ' line';
+        }
+    }
+}
+
+function sortTable(value) {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.querySelector('.users-data-container');
+    switching = true;
+    while (switching) {
+        switching = false;
+        rows = table.querySelectorAll('.row');
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].querySelectorAll('.cell')[value];
+            y = rows[i + 1].querySelectorAll('.cell')[value];
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
         }
     }
 }

@@ -18,17 +18,42 @@
                     rowHeight: '90',
                     rowMouseOver: true,
                     rowStyle: 'zebra',
-                    //fixedHeader: true,
                 }
             });
+            var allDeleteBtn = document.querySelectorAll('.delete');
+            for (var i in allDeleteBtn) {
+                allDeleteBtn[i].onclick = function () {
+                    this.parentElement.remove();
+                };
+            }
+            document.querySelector('.sort-table').onclick = function () {
+                var value = document.getElementsByName('sort-table')[0].value;
+                sortTable(value);
+            };
         }
     </script>
     <title>Super Table</title>
 </head>
 
 <body>
+    <select name="sort-table">
+        <option value="0" selected>Id</option>
+        <option value="1">Index</option>
+        <option value="2">Name</option>
+        <option value="3">Email</option>
+        <option value="4">Gender</option>
+        <option value="5">Is Active</option>
+        <option value="6">Age</option>
+        <option value="7">eyeColor</option>
+        <option value="8">Company</option>
+        <option value="9">Phone</option>
+        <option value="10">Address</option>
+        <option value="11">Registered</option>
+    </select>
+    <button type="button" name="sort" class="sort-table">Sort</button>
+
     <div class="users-data-container">
-        <div class="row header" style="position: fixed">
+        <div class="row header">
             <div class="cell index id">Id</div>
             <div class="cell index index">Index</div>
             <div class="cell index name">Name</div>
@@ -43,7 +68,6 @@
             <div class="cell index registered">Registered</div>
         </div>
     </div>
-    <div style="margin-top: 500px;">LOL</div>
 </body>
 
 </html>
