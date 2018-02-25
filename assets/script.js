@@ -1,8 +1,3 @@
-window.onload = function () {
-
-};
-
-
 function initSuperTable(attributes) {
     displayData(attributes['element'], attributes['data']);
     rowHeight(attributes['options']['rowHeight']);
@@ -64,6 +59,14 @@ function rowStyle(type) {
             allCells[d].className += ' line';
         }
     }
+}
+
+// other functions
+window.onload = function () {
+    document.querySelector('.sort-table').onclick = function () {
+        var value = document.getElementsByName('sort-table')[0].value;
+        sortTable(value);
+    };
 }
 
 function sortTable(value) {

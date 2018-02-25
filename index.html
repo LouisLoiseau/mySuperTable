@@ -8,30 +8,7 @@
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/database.js"></script>
     <script src="assets/script.js"></script>
-    <script>
-        window.onload = function () {
-            var usersContainer = document.querySelector('.users-data-container');
-            initSuperTable({
-                element: usersContainer,
-                data: users,
-                options: {
-                    rowHeight: '90',
-                    rowMouseOver: true,
-                    rowStyle: 'zebra',
-                }
-            });
-            var allDeleteBtn = document.querySelectorAll('.delete');
-            for (var i in allDeleteBtn) {
-                allDeleteBtn[i].onclick = function () {
-                    this.parentElement.remove();
-                };
-            }
-            document.querySelector('.sort-table').onclick = function () {
-                var value = document.getElementsByName('sort-table')[0].value;
-                sortTable(value);
-            };
-        }
-    </script>
+
     <title>Super Table</title>
 </head>
 
@@ -66,8 +43,21 @@
             <div class="cell index phone">Phone</div>
             <div class="cell index address">Address</div>
             <div class="cell index registered">Registered</div>
+            <div class="cell index"></div>
         </div>
     </div>
+    <script>
+        var usersContainer = document.querySelector('.users-data-container');
+        initSuperTable({
+            element: usersContainer,
+            data: users,
+            options: {
+                rowHeight: '90',
+                rowMouseOver: true,
+                rowStyle: 'zebra',
+            }
+        });
+    </script>
 </body>
 
 </html>
